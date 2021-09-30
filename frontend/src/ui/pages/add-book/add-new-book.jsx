@@ -1,3 +1,4 @@
+import { Form, Formik } from "formik"
 import React from "react"
 import { useHistory } from "react-router-dom"
 import Input from "../../molecules/input/input"
@@ -10,12 +11,16 @@ const AddNewBook = () => {
 
     return (
         <div className="add-new-book">
-            <h1>Add new book</h1>
+            <Formik>
+                <Form>
+                    <h1>Add new book</h1>
 
-            <Input labelId="title" labelText="Title" placeholder="Death on the Nile" />
-            <Input labelId="author" labelText="Author" placeholder="Agatha Christie" />
+                    <Input labelId="title" labelText="Title" placeholder="Death on the Nile" />
+                    <Input labelId="author" labelText="Author" placeholder="Agatha Christie" />
 
-            <OkCancelButtons disabled={true} onCancel={() => history.push("/")} />
+                    <OkCancelButtons disabled={true} onCancel={() => history.push("/")} />
+                </Form>
+            </Formik>
         </div>
     )
 }

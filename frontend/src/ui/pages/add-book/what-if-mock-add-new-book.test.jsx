@@ -4,6 +4,7 @@ import { toHaveComponentCalledWith, toHaveComponentNthCalledWith } from "../../.
 import AddNewBook from "./add-new-book"
 import OkCancelButtons from "../../molecules/ok-cancel-buttons/ok-cancel-buttons"
 import Input from "../../molecules/input/input"
+import { Form, Formik } from "formik"
 
 jest.mock("../../molecules/ok-cancel-buttons/ok-cancel-buttons", () => ({
     __esModule: true,
@@ -15,12 +16,20 @@ jest.mock("../../molecules/input/input", () => ({
     default: jest.fn().mockReturnValue(null)
 }))
 
+jest.mock("formik", () => ({
+    ...jest.requireActual("formik"),
+    Formik: jest.fn().mockImplementation(({ children }) => children),
+    Form: jest.fn().mockImplementation(({ children }) => children)
+}))
 
 describe("Add a new Book page", () => {
     it("renders the form with the Save button disabled", () => {
         render(<AddNewBook />)
 
         expect(screen.getByRole("heading", { name: /add new book/i })).toBeInTheDocument()
+
+        expect(Formik).toHaveBeenCalled()
+        expect(Form).toHaveBeenCalled()
 
         toHaveComponentNthCalledWith(Input, 1, {
             labelId: "title",
