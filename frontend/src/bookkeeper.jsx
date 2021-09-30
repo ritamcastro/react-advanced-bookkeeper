@@ -5,6 +5,7 @@ import Footer from "./ui/molecules/footer/footer"
 import ModalProvider from "./hooks/use-modal/use-modal"
 import "./bookkeeper.scss"
 import FormModal from "./ui/templates/form-modal/form-modal"
+import AddNewBook from "./ui/pages/add-book/add-new-book"
 
 const Bookkeeper = () => {
 
@@ -12,7 +13,7 @@ const Bookkeeper = () => {
         <Header />
         <ModalProvider>
             <main>
-                <p>We'll need books here</p>
+                <AddNewBook />
             </main>
         </ModalProvider>
         <Footer />
