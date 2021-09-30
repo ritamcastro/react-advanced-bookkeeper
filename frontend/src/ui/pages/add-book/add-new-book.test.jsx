@@ -1,6 +1,13 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
 import AddNewBook from "./add-new-book"
+
+const mockHistoryPush = jest.fn()
+jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useHistory: () => ({ push: mockHistoryPush }),
+}))
 
 describe("Add a new Book page", () => {
     it("renders the form with the Save button disabled", () => {
@@ -22,5 +29,16 @@ describe("Add a new Book page", () => {
         const okBtn = screen.getByRole("button", { name: "OK" })
         expect(okBtn).toBeInTheDocument()
         expect(okBtn).toBeDisabled()
+    })
+
+    it("takes us back home when clicking Cancel", () => {
+        render(<AddNewBook />)
+
+        const cancelBtn = screen.getByRole("button", { name: "Cancel" })
+        expect(cancelBtn).toBeInTheDocument()
+
+        userEvent.click(cancelBtn)
+
+        expect(mockHistoryPush).toHaveBeenCalledTimes(1)
     })
 })
