@@ -1,0 +1,43 @@
+.input-field {
+    display: flex;
+    flex-direction: column;
+
+    margin: 16px 0;
+
+    font-family: "VWAGTheSans-Bold";
+
+    input {
+        font-family: "VWAGTheSans-Regular";
+        font-size: 16px;
+
+        margin-top: 4px;
+        border: 1px solid #bdc1c7;
+        border-radius: 2px;
+        padding: 12px 8px;
+
+        &:hover {
+            border-color: #006384;
+        }
+        &:focus {
+            border-color: #004666;
+            color: #34393b;
+        }
+    }
+
+    &.is-danger {
+        input {
+            border: 1px solid #b00020;
+        }
+
+        small {
+            padding-top: 4px;
+            color: red;
+        }
+    }
+
+    // Remove background for autocomplete
+    input:-webkit-autofill {
+        box-shadow: none;
+        -webkit-box-shadow: 0 0 0 30px white inset;
+    }
+}

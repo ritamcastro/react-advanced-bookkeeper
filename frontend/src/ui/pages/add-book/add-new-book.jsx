@@ -1,19 +1,17 @@
 import React from "react"
+import Input from "../../molecules/input/input"
+import OkCancelButtons from "../../molecules/ok-cancel-buttons/ok-cancel-buttons"
 import "./add-new-book.scss"
 
 const AddNewBook = () => {
     return (
         <div className="add-new-book">
-            <h1>Add New booK</h1>
+            <h1>Add new book</h1>
 
-            <label htmlFor="title">tItlE</label>
-            <input type="text" id="title" placeholder="Death on the Nile" />
+            <Input labelId="title" labelText="Title" placeholder="Death on the Nile" />
+            <Input labelId="author" labelText="Author" placeholder="Agatha Christie" />
 
-            <label htmlFor="author">Author</label>
-            <input type="text" id="author" placeholder="Agatha Christie" />
-
-            <button>Cancel</button>
-            <button disabled>OK</button>
+            <OkCancelButtons disabled={true} />
         </div>
     )
 }
