@@ -5,6 +5,7 @@ import AddNewBook from "./add-new-book"
 import OkCancelButtons from "../../molecules/ok-cancel-buttons/ok-cancel-buttons"
 import Input from "../../molecules/input/input"
 import { Form, Formik } from "formik"
+import { mockComponent } from "../../../utils/test/mocks"
 
 jest.mock("../../molecules/ok-cancel-buttons/ok-cancel-buttons", () => ({
     __esModule: true,
@@ -21,6 +22,13 @@ jest.mock("formik", () => ({
     Formik: jest.fn().mockImplementation(({ children }) => children),
     Form: jest.fn().mockImplementation(({ children }) => children)
 }))
+
+const mockHistoryPush = jest.fn()
+jest.mock("react-router-dom", () => ({
+    ...jest.requireActual("react-router-dom"),
+    useHistory: () => ({ push: mockHistoryPush }),
+}))
+
 
 describe("Add a new Book page", () => {
     it("renders the form with the Save button disabled", () => {
@@ -46,5 +54,14 @@ describe("Add a new Book page", () => {
         // ... Same for the other fields ...
 
         toHaveComponentCalledWith(OkCancelButtons, { disabled: true })
+    })
+
+    it("takes us back home when clicking Cancel", () => {
+        const buttonsProps = mockComponent(OkCancelButtons)
+
+        render(<AddNewBook />)
+
+        buttonsProps.onCancel()
+        expect(mockHistoryPush).toHaveBeenCalled()
     })
 })

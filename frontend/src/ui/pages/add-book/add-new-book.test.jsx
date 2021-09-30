@@ -10,18 +10,9 @@ jest.mock("react-router-dom", () => ({
     useHistory: () => ({ push: mockHistoryPush }),
 }))
 
-jest.mock("formik", () => ({
-    ...jest.requireActual("formik"),
-    Formik: jest.fn().mockImplementation(({ children }) => children),
-    Form: jest.fn().mockImplementation(({ children }) => children)
-}))
-
 describe("Add a new Book page", () => {
     it("renders the form with the Save button disabled", () => {
         render(<AddNewBook />)
-
-        expect(Formik).toHaveBeenCalled()
-        expect(Form).toHaveBeenCalled()
 
         expect(screen.getByRole("heading", { name: /add new book/i })).toBeInTheDocument()
 
@@ -48,5 +39,7 @@ describe("Add a new Book page", () => {
         expect(mockHistoryPush).toHaveBeenCalledTimes(1)
     })
 
+    it("calls the service to add a new book when submitting", () => {
 
+    })
 })
