@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+// // Group UI Definitions
+// $colors: (
+//     primary: #004666,
+//     primary100: #037da6,
+//     primary300: #005475,
+//     secondary: #006384,
+//     tertiary: #002d42,
+// );
+
+@font-face {
+    font-family: "VWAGTheSans-Bold";
+    src: url("../public/fonts/VWAGTheSans-Bold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "VWAGTheSans-Regular";
+    src: url("../public/fonts/VWAGTheSans-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    background-color: #edf0f2;
+    height: 100%;
+    width: 100%;
+}
+#bookkeeper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}

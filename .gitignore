@@ -1,0 +1,19 @@
+.DS_Store
+
+/tmp
+node_modules
+
+# Ignore stuff from ides...
+.vscode/*
+*/.vscode/*
+
+# except the recomended extensions from VSCcode... hihihi
+!.vscode/extensions.json
+*/!.vscode/extensions.json
+
+
+frontend/all-src/*
+frontend/dist/
+frontend/,DS_Stores
+
+backend/*
