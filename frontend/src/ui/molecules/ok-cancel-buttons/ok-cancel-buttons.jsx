@@ -7,8 +7,7 @@ const OkCancelButtons = ({ disabled, onCancel }) => {
     return (
         <div className="action-buttons">
             <CancelButton onClick={onCancel} />
-            {/* <OkButton type="submit" disabled={disabled} /> */}
-            <OkButton type="button" disabled={disabled} />
+            <OkButton type="submit" disabled={disabled} />
         </div>
     )
 }

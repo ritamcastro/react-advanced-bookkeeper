@@ -3,7 +3,7 @@ import "./ok-button.scss"
 
 const OkButton = (props) => {
     return (
-        <button {...props} className="ok-button">
+        <button {...props} aria-label="OK" className="ok-button">
             OK
         </button >
     )
