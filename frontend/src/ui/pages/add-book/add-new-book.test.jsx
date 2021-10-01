@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import faker from "faker"
+import factory from "../../../utils/test/factory"
 import { addBook } from "../../../services/add-book"
 import AddNewBook from "./add-new-book"
 
@@ -44,17 +44,8 @@ describe("Add a new Book page", () => {
         expect(mockHistoryPush).toHaveBeenCalledTimes(1)
     })
 
-    const bookFactory = () => {
-        return {
-            title: faker.lorem.sentence(),
-            author: `${faker.name.firstName()} ${faker.name.lastName()}`,
-            isbn: faker.internet.password(13, false, /[0-9]/),
-            image: faker.internet.url()
-        }
-    }
-
     it("successfully calls the service to add a new book when submitting and takes us back home", async () => {
-        const book = bookFactory()
+        const book = factory.book()
         addBook.mockResolvedValueOnce()
 
         render(<AddNewBook />)
