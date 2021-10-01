@@ -1,0 +1,26 @@
+.form-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+    width: 312px;
+
+    font-family: "VWAGTheSans-Bold";
+
+    h1 {
+        font-size: 24px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .form-elements {
+            margin-top: 24px;
+            margin-bottom: 48px;
+        }
+    }
+}

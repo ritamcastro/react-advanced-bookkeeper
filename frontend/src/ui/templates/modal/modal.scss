@@ -1,0 +1,150 @@
+/*
+ * Modal
+ */
+.modal {
+    background-color: rgba(#004666, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    // place-items: center;
+    // left: 0;
+    top: 0; // ???
+    z-index: 1005;
+    // overflow-y: auto;
+
+    &-wrapper {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        padding: 32px;
+        // margin: 16px;
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &-title {
+        display: flex;
+        align-items: center;
+
+        font-family: "VWAGTheSans-Bold";
+        font-size: 24px;
+    }
+
+    &-close {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+        &:hover {
+            color: #212121;
+        }
+    }
+
+    &-content {
+        display: flex;
+    }
+}
+//     &__close {
+//       &::after {
+//         @include icon($modal-close-icon);
+//         font-size: $modal-close-icon-size;
+//         margin-top: $modal-close-icon-margin-top;
+//       }
+//       position: absolute;
+//       color: $modal-close-icon-color;
+//       background-color: $modal-close-background-color;
+//       display: inline-block;
+//       cursor: pointer;
+//       &:hover {
+//         color: $modal-close-icon-color-hover;
+//       }
+//     }
+//     &__title {
+//       font-family: $modal-title-font-family;
+//       font-size: $modal-title-font-size;
+//       color: $modal-title-color;
+//       letter-spacing: $modal-title-letter-spacing;
+//       line-height: $modal-title-letter-height;
+//       display: inline-block;
+//       margin-bottom: 32px;
+//       width: calc(100% - #{$modal-close-icon-size});
+//     }
+//     &__wrapper {
+//       background-color: $modal-content-background-color;
+//       border-radius: $modal-content-border-radius;
+//       padding: $modal-content-padding;
+//       @each $modalbreakpoint, $width in $modal-content-width {
+//         @include breakpoint($modalbreakpoint) {
+//           max-width: calc(100% - #{$width});
+//           min-width: calc(100% - #{$width}/ 2);
+//         }
+//       }
+//     }
+
+//     &--flexible {
+//       pointer-events: none;
+//       background-color: $modal-flexible-content-background-color;
+
+//       .modal__wrapper {
+//         @extend .is-elevate;
+//         pointer-events: all;
+//         position: absolute;
+//         top: 25%;
+//         left: 25%;
+//         margin: 0;
+//         border-radius: $modal-flexible-border-radius;
+//         max-width: $modal-flexible-content-width;
+//         min-width: $modal-flexible-content-width;
+//         .modal__content {
+//           width: $modal-flexible-content-width;
+//           .btn {
+//             margin-left: $modal-btn-margin-left;
+//           }
+//         }
+//       }
+//     }
+
+//     &--no-headline-but-icon {
+//       .modal__wrapper {
+//         padding: $modal-no-headline-but-icon-content-padding;
+//         .modal__close {
+//           right: $modal-no-headline-but-icon-close-right;
+//         }
+//       }
+//     }
+
+//     &--mobile {
+//       .modal__wrapper {
+//         margin-top: $modal-mobile-margin-top;
+//         border-radius: $modal-flexible-border-radius;
+//         .modal__content {
+//           .btn {
+//             margin-left: $modal-btn-margin-left;
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   h1.modal__title {
+//     font-family: $modal-title-font-family;
+//     font-size: $modal-title-font-size;
+//     color: $modal-title-color;
+//     letter-spacing: $modal-title-letter-spacing;
+//     line-height: $modal-title-letter-height;
+//     display: inline-block;
+//     margin-bottom: $modal-title-letter-margin-bottom;
+//     width: calc(100% - #{$modal-close-icon-size});
+//     padding-right: $modal-title-letter-padding-right;
+//     hyphens: auto;
+//   }
