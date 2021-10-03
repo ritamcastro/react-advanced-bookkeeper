@@ -1,39 +1,36 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
+import { useLoadData } from "../../../hooks/use-load-data/use-load-data"
 import { getAvailableBooks } from "../../../services/on-available"
 import BookCard from "../../organisms/book-card/book-card"
 import "./available-books.scss"
 
 const AvailableBooks = () => {
 
-    const [isLoading, setLoading] = useState(true)
-    const [hasError, setError] = useState(false)
-    const [books, setBooks] = useState()
-
-    useEffect(() => {
-        getAvailableBooks()
-            .then(books => {
-                setBooks(books)
-                setLoading(false)
-            })
-            .catch(() => {
-                setError(true)
-                setLoading(false)
-            })
-    }, [])
+    const { status, data, error } = useLoadData(() => getAvailableBooks())
 
     return (
         <div className="bookshelf">
-            <If condition={isLoading}>
-                <div>Loading...</div>
-            </If>
-            <div className="books"> {
-                Object.values(books || []).map(book => (
-                    <BookCard key={book.isbn} book={book} />
-                ))
-            } </div>
-            <If condition={hasError}>
-                <div>Oh no, something went terribly wrong.</div>
-            </If>
+            < Choose >
+                <When condition={status == "pending"}>
+                    <div>Loading...</div>
+                </When>
+
+                <When condition={status == "resolved"}>
+                    <h1>Available books: {data.length}</h1>
+                    <div className="books">
+                        {
+                            Object.values(data).map(book => (
+                                <BookCard key={book.isbn} book={book} />
+                            ))
+                        }
+                    </div>
+                </When>
+
+                <When condition={status == "rejected"}>
+                    <div>Oh no, something went terribly wrong.</div>
+                    <div>In particular, this: {error}</div>
+                </When>
+            </Choose >
         </div>
     )
 }
