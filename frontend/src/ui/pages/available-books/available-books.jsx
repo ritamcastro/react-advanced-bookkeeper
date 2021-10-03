@@ -5,10 +5,13 @@ import "./available-books.scss"
 
 const AvailableBooks = () => {
 
+    const [hasError, setError] = useState(false)
     const [books, setBooks] = useState()
 
     useEffect(() => {
-        getAvailableBooks().then(setBooks)
+            .catch(() => {
+                setError(true)
+            })
     }, [])
 
     return (
@@ -20,6 +23,9 @@ const AvailableBooks = () => {
                     ))
                 }
             </div>
+            <If condition={hasError}>
+                <div>Oh no, something went terribly wrong.</div>
+            </If>
         </div>
     )
 }
