@@ -2,10 +2,10 @@ import React from "react"
 import { useHistory } from "react-router-dom"
 import { Formik, Form } from "formik"
 import * as Yup from "yup"
+import { addBook } from "../../../services/add-book"
 import Input from "../../molecules/formik/input/input"
 import OkCancelButtons from "../../molecules/ok-cancel-buttons/ok-cancel-buttons"
 import "./add-new-book.scss"
-import { addBook } from "../../../services/add-book"
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required("Please add the book title."),

@@ -7,7 +7,7 @@ const Operation = ({ to, src, alt, children }) => {
         <div className="operation">
             <img alt={alt} src={src} height="72px" width="72px" />
 
-            <Link to={to}>
+            <Link to={to} aria-label={children}>
                 <span className="operation-btn">
                     {children}
                 </span>
