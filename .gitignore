@@ -1,7 +1,6 @@
 .DS_Store
-
-/tmp
-node_modules
+node_modules/
+dist/
 
 # Ignore stuff from ides...
 .vscode/*
@@ -9,11 +8,3 @@ node_modules
 
 # except the recomended extensions from VSCcode... hihihi
 !.vscode/extensions.json
-*/!.vscode/extensions.json
-
-
-frontend/all-src/*
-frontend/dist/
-frontend/,DS_Stores
-
-backend/*

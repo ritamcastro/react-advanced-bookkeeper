@@ -1,9 +1,9 @@
 {
     "name": "sdclx-bookkeeper-frontend",
     "version": "1.0.0",
-    "description": "Frontend built with atomic in mind for the SDC:LX Bookkeeper.",
+    "description": "Bits and pieces of the frontend built with atomic in mind for the SDC:LX Bookkeeper.",
     "main": "index.js",
-    "repository": "https://github.com/vwsdclx/sdclx-bookkeeper",
+    "repository": "https://github.com/ritamcastro/react-advanced-bookkeeper",
     "scripts": {
         "lint": "eslint ./src/. --ext js --ext jsx --fix",
         "test": "jest --testTimeout=15000",

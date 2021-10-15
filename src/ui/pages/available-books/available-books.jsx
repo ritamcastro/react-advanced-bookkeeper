@@ -1,12 +1,12 @@
 import React from "react"
 import { useLoadData } from "../../../hooks/use-load-data/use-load-data"
-import { getAvailableBooks } from "../../../services/on-available"
+import { getAvailableBooksFixed } from "../../../services/on-available"
 import BookCard from "../../organisms/book-card/book-card"
 import "./available-books.scss"
 
 const AvailableBooks = () => {
 
-    const { status, data, error } = useLoadData(() => getAvailableBooks())
+    const { status, data, error } = useLoadData(() => getAvailableBooksFixed())
 
     return (
         <div className="bookshelf">
